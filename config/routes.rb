@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resources :poptarts, only: [:index]
+  resources :poptarts, only: [:index, :show]
 end
