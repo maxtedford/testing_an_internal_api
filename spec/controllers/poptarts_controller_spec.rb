@@ -8,7 +8,11 @@ describe PoptartsController do
       get :index, format: :json
       
       expect(response).to have_http_status(:ok)
-      expect(response.body.count).to eq(1)
+      poptarts = JSON.parse(response.body)
+      expect(poptarts.count).to eq(1)
+      poptart = poptarts.first
+      expect(poptart['flavor']).to eq('strawberry')
+      expect(poptart['sprinkles']).to eq('red')
     end
   end
 end
