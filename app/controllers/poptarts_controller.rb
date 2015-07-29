@@ -13,6 +13,11 @@ class PoptartsController < ApplicationController
     respond_with poptart
   end
   
+  def update
+    poptart = Poptart.find_by(id: params[:id])
+    respond_with poptart.update(poptart_params)
+  end
+  
   private
   
   def poptart_params
